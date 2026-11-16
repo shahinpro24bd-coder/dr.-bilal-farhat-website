@@ -5,13 +5,13 @@ export const Route = createFileRoute("/$page")({
   head: ({ params }) => {
     const labels: Record<string, string> = {
       "about.html": "About",
-      "service.html": "Treatments",
+      "service.html": "Services",
       "appoinment.html": "Appointment",
       "contact.html": "Contact",
     };
     const label = labels[params.page] ?? "Page";
-    const title = `${label} | Dr. Dina Svinareva`;
-    const description = `Dr. Dina Svinareva — ${label.toLowerCase()}: ophthalmic and oculoplastic surgery in Voronezh & Belgorod.`;
+    const title = `${label} | Dr. Bilal Farhat Ali, MD`;
+    const description = `Dr. Bilal Farhat Ali — ${label.toLowerCase()}: internal medicine care for adults in Cincinnati, Ohio, in English and Urdu.`;
     return {
       meta: [
         { title },

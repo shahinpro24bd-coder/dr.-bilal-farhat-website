@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Site content
+- The public pages are the static HTML files in `src/site/`, rendered through `src/lib/site-content/` with text keyed by hash of the source string; after editing page text, regenerate `fallback.generated.json` so every key has every published language, because missing keys silently fall back to source text.
+- Published languages live only in `SITE_LANGS` (`server.ts`) and must match `public/js/i18n.js` flags/names; keep page layout left-to-right and handle right-to-left scripts with per-block `unicode-bidi: plaintext`, so the design stays identical across languages.
+- All images, posters and videos are self-hosted under `public/`; never reference hosting-platform CDN URLs, because the site must carry no platform branding.

@@ -2,7 +2,7 @@ import fallbackSnapshotJson from "./fallback.generated.json?raw";
 import { SITE_LOGO_URL } from "./branding";
 
 /** Every language the site is published in, in switcher order. */
-export const SITE_LANGS = ["en", "ru"] as const;
+export const SITE_LANGS = ["en", "ur"] as const;
 export type SiteLang = (typeof SITE_LANGS)[number];
 
 export function isSiteLang(value: string): value is SiteLang {
@@ -26,9 +26,7 @@ export type ContentSnapshot = {
  * client by /js/local-content.js.
  */
 const SNAPSHOT: ContentSnapshot = JSON.parse(fallbackSnapshotJson);
-SNAPSHOT.images["doctor-logo"] = SITE_LOGO_URL;
-SNAPSHOT.images["dr-fatema-logo"] = SITE_LOGO_URL;
-SNAPSHOT.images["transparent-pixel"] = SITE_LOGO_URL;
+SNAPSHOT.images["dr-bilal-logo"] = SITE_LOGO_URL;
 
 export async function getContentSnapshot(_force = false): Promise<ContentSnapshot> {
   return SNAPSHOT;

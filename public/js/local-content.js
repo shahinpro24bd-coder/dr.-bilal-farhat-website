@@ -119,7 +119,7 @@
       });
     }
     if (c.facebook) {
-      document.querySelectorAll("a .fa-facebook-f").forEach(function (i) {
+      document.querySelectorAll("a .fa-youtube").forEach(function (i) {
         i.closest("a").setAttribute("href", c.facebook);
       });
     }
@@ -154,7 +154,7 @@
     applyContact();
     var data = read();
     if (!data) return;
-    var lang = window.__SITE_LANG__ || "ru";
+    var lang = window.__SITE_LANG__ || "en";
     applyTexts((data.langs && data.langs[lang]) || null);
     applyImages(data.images || null);
   }

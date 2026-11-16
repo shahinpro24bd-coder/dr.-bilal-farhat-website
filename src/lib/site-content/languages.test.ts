@@ -5,62 +5,63 @@ import { readFileSync } from "node:fs";
 import { JSDOM } from "jsdom";
 
 describe("public languages", () => {
-  it("offers exactly English and Russian", () => {
-    expect(SITE_LANGS).toEqual(["en", "ru"]);
-    expect(isSiteLang("ru")).toBe(true);
+  it("offers exactly English and Urdu", () => {
+    expect(SITE_LANGS).toEqual(["en", "ur"]);
+    expect(isSiteLang("ur")).toBe(true);
+    expect(isSiteLang("ru")).toBe(false);
     expect(isSiteLang("he")).toBe(false);
   });
 
-  it("bundles Russian for every English content key", async () => {
+  it("bundles Urdu for every English content key", async () => {
     const snapshot = await getContentSnapshot();
-    expect(Object.keys(snapshot.langs.ru).sort()).toEqual(Object.keys(snapshot.langs.en).sort());
+    expect(Object.keys(snapshot.langs.ur).sort()).toEqual(Object.keys(snapshot.langs.en).sort());
     for (const [key, english] of Object.entries(snapshot.langs.en)) {
-      if (/[a-z]/i.test(english) && !/^(WhatsApp|Instagram|@dr\.dinasvinareva)/.test(english)) {
-        expect(snapshot.langs.ru[key]).toMatch(/[Ѐ-ӿ]/);
+      if (/[a-z]/i.test(english as string) && !/^(@dr\.bilalfarhat|@BilalFarhatAliMD|breadcrumb)$/.test(english as string)) {
+        expect(snapshot.langs.ur[key]).toMatch(/[\u0600-\u06FF]/);
       }
     }
   });
 
-  it("renders Russian and English left-to-right", () => {
+  it("renders Urdu and English with the same left-to-right layout", () => {
     const html = "<html><head></head><body>Home</body></html>";
-    expect(renderPage(html, { texts: {}, images: {}, lang: "ru" })).toContain('lang="ru" dir="ltr"');
+    expect(renderPage(html, { texts: {}, images: {}, lang: "ur" })).toContain('lang="ur" dir="ltr"');
     expect(renderPage(html, { texts: {}, images: {}, lang: "en" })).toContain('lang="en" dir="ltr"');
   });
 });
 
 describe("default language", () => {
-  it("serves Russian when no language is chosen", async () => {
+  it("serves English when no language is chosen", async () => {
     const { renderSitePage } = await import("./render.server");
     const res = await renderSitePage(new Request("http://x/index.html"), "index");
-    expect(await res.text()).toContain('window.__SITE_LANG__="ru"');
+    expect(await res.text()).toContain('window.__SITE_LANG__="en"');
   });
 
   it("keeps cookie-selected pages out of shared caches", async () => {
     const { renderSitePage } = await import("./render.server");
     const res = await renderSitePage(new Request("http://x/index.html", {
-      headers: { cookie: "site_lang=en" },
+      headers: { cookie: "site_lang=ur" },
     }), "index");
-    expect(await res.text()).toContain('window.__SITE_LANG__="en"');
+    expect(await res.text()).toContain('window.__SITE_LANG__="ur"');
     expect(res.headers.get("Cache-Control")).toBe("private, no-cache");
     expect(res.headers.get("Vary")).toBe("Cookie");
     const fresh = await renderSitePage(new Request("http://x/index.html"), "index");
-    expect(await fresh.text()).toContain('window.__SITE_LANG__="ru"');
+    expect(await fresh.text()).toContain('window.__SITE_LANG__="en"');
     expect(fresh.headers.get("Cache-Control")).toBe("private, no-cache");
   });
 
-  it("switches explicitly to Russian even with a remembered English preference", async () => {
+  it("switches explicitly to Urdu even with a remembered English preference", async () => {
     const { renderSitePage } = await import("./render.server");
-    const res = await renderSitePage(new Request("http://x/about.html?lang=ru", {
+    const res = await renderSitePage(new Request("http://x/about.html?lang=ur", {
       headers: { cookie: "site_lang=en" },
     }), "about");
-    expect(await res.text()).toContain('window.__SITE_LANG__="ru"');
+    expect(await res.text()).toContain('window.__SITE_LANG__="ur"');
     expect(res.headers.get("Cache-Control")).toContain("public");
   });
 
-  it("renders English on an explicit switch even with a Russian cookie", async () => {
+  it("renders English on an explicit switch even with an Urdu cookie", async () => {
     const { renderSitePage } = await import("./render.server");
     const res = await renderSitePage(new Request("http://x/service.html?lang=en", {
-      headers: { cookie: "site_lang=ru" },
+      headers: { cookie: "site_lang=ur" },
     }), "service");
     expect(await res.text()).toContain('window.__SITE_LANG__="en"');
   });
@@ -76,12 +77,12 @@ describe("default language", () => {
     });
     dom.window.eval(readFileSync("public/js/i18n.js", "utf8"));
     dom.window.document.dispatchEvent(new dom.window.Event("DOMContentLoaded"));
-    for (const lang of ["ru", "en"]) {
+    for (const lang of ["ur", "en"]) {
       const choice = dom.window.document.querySelector<HTMLAnchorElement>(`[data-lang="${lang}"]`);
       expect(choice?.getAttribute("href")).toBe(`/?lang=${lang}`);
       choice?.click();
     }
-    expect(destinations).toEqual([["http://x/?lang=ru", "ru"], ["http://x/?lang=en", "en"]]);
+    expect(destinations).toEqual([["http://x/?lang=ur", "ur"], ["http://x/?lang=en", "en"]]);
     dom.window.close();
   });
 });

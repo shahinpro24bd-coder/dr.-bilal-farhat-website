@@ -5,10 +5,10 @@ import { SITE_LOGO_URL } from "@/lib/site-content/branding";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dr. Dina Svinareva, MD, Ph.D. | Ophthalmic & Oculoplastic Surgeon" },
-      { name: "description", content: "Consultant ophthalmic surgeon in Voronezh & Belgorod: blepharoplasty, oculoplastic surgery, cataract, glaucoma and strabismus care." },
-      { property: "og:title", content: "Dr. Dina Svinareva, MD, Ph.D. | Ophthalmic & Oculoplastic Surgeon" },
-      { property: "og:description", content: "Consultant ophthalmic surgeon in Voronezh & Belgorod: blepharoplasty, oculoplastic surgery, cataract, glaucoma and strabismus care." },
+      { title: "Dr. Bilal Farhat Ali, MD | Internal Medicine Physician in Cincinnati" },
+      { name: "description", content: "Internal Medicine physician in Cincinnati, Ohio: diabetes, blood pressure, kidney, thyroid and preventive care for adults — consultations in English and Urdu." },
+      { property: "og:title", content: "Dr. Bilal Farhat Ali, MD | Internal Medicine Physician in Cincinnati" },
+      { property: "og:description", content: "Internal Medicine physician in Cincinnati, Ohio: diabetes, blood pressure, kidney, thyroid and preventive care for adults — consultations in English and Urdu." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

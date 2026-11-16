@@ -37,7 +37,7 @@ export type Tab = "dashboard" | "contact" | "services" | "faqs" | "requests" | "
 const TABS: { id: Tab; label: string; icon: typeof Home }[] = [
   { id: "dashboard", label: "Dashboard", icon: LayoutGrid },
   { id: "contact", label: "Contact Info", icon: Building2 },
-  { id: "services", label: "Treatments", icon: Stethoscope },
+  { id: "services", label: "Services", icon: Stethoscope },
   { id: "faqs", label: "FAQs", icon: HelpCircle },
   { id: "requests", label: "Appointment Requests", icon: CalendarCheck },
   { id: "account", label: "Account", icon: UserCog },
@@ -45,8 +45,8 @@ const TABS: { id: Tab; label: string; icon: typeof Home }[] = [
 
 export const EDITABLE_PAGES = [
   { slug: "index", label: "Home", desc: "Hero, about the doctor, treatments, before & after, FAQ", icon: Home },
-  { slug: "about", label: "About", desc: "Dr. Dina Svinareva's story, training and values", icon: Info },
-  { slug: "service", label: "Treatments", desc: "All plastic and aesthetic treatments", icon: Stethoscope },
+  { slug: "about", label: "About", desc: "Dr. Bilal Farhat Ali's story, training and values", icon: Info },
+  { slug: "service", label: "Services", desc: "All internal medicine services", icon: Stethoscope },
   { slug: "appoinment", label: "Appointment", desc: "Booking page and form texts", icon: CalendarCheck },
   { slug: "contact", label: "Contact", desc: "Contact details and form", icon: Mail },
 ] as const;
@@ -101,7 +101,7 @@ export function AdminDashboard({
       <header className="sticky top-0 z-10 bg-admin-bar text-admin-bar-foreground">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <span className={`${heading} text-2xl`}>
-            Dr. Dina Svinareva <span className="text-admin-accent">Admin</span>
+            Dr. Bilal Farhat Ali <span className="text-admin-accent">Admin</span>
           </span>
           <div className="flex items-center gap-3">
             <a href="/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 border border-admin-bar-foreground px-2 py-1 text-sm">
@@ -214,7 +214,7 @@ export function AdminDashboard({
         {tab === "contact" && (
           <Card className="max-w-3xl">
             <h2 className={`${heading} text-2xl`}>Contact info</h2>
-            <p className="mb-4 text-sm text-muted-foreground">Phone, WhatsApp and social links update the buttons across the website.</p>
+            <p className="mb-4 text-sm text-muted-foreground">Phone and social links update the buttons across the website.</p>
             <form
               className="grid gap-3 sm:grid-cols-2"
               onSubmit={(e) => {
@@ -232,7 +232,7 @@ export function AdminDashboard({
                   ["hours", "Working hours"],
                   ["address", "Clinic address"],
                   ["instagram", "Instagram link"],
-                  ["facebook", "Facebook link"],
+                  ["facebook", "YouTube link"],
                 ] as [keyof ContactInfo, string][]
               ).map(([k, label]) => (
                 <label key={k} className="text-xs font-medium text-muted-foreground">
@@ -373,7 +373,7 @@ function Requests({
     <Card>
       <h2 className={`${heading} text-2xl`}>Appointment requests</h2>
       <p className="mb-4 text-sm text-muted-foreground">
-        Requests sent from the website's appointment form on this browser. They also go to WhatsApp as before.
+        Requests sent from the website's appointment form on this browser. They also open the doctor's Instagram chat.
       </p>
       {sorted.length === 0 ? (
         <p className="text-sm text-muted-foreground">No requests yet.</p>
@@ -395,7 +395,7 @@ function Requests({
                 <tr key={r.id} className={`border-b border-border ${r.read ? "" : "font-semibold"}`}>
                   <td className="py-2">{r.name}</td>
                   <td>
-                    <a className="text-admin-accent" href={`https://wa.me/${r.phone.replace(/\D/g, "")}`} target="_blank" rel="noreferrer">
+                    <a className="text-admin-accent" href={`tel:${r.phone.replace(/[^0-9+]/g, "")}`}>
                       {r.phone}
                     </a>
                   </td>

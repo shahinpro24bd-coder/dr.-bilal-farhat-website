@@ -34,28 +34,30 @@ export const KEYS = {
 } as const;
 
 export const DEFAULT_CONTACT: ContactInfo = {
-  doctor: "Dr. Dina Svinareva",
-  title: "Plastic and Aesthetic Surgeon",
-  phone: "+972 53 281 5272",
-  whatsapp: "+972 53 281 5272",
+  doctor: "Dr. Bilal Farhat Ali, MD",
+  title: "Internal Medicine Physician",
+  phone: "",
+  whatsapp: "",
   email: "",
-  address: "",
-  hours: "",
-  instagram: "https://www.instagram.com/dr.fatemamirza/",
+  address: "Mercy Health – Anderson Hospital, 7500 State Rd, Cincinnati, OH 45255",
+  hours: "By appointment",
+  instagram: "https://www.instagram.com/dr.bilalfarhat/",
   facebook: "",
 };
 
 const SERVICE_NAMES = [
-  "Rhinoplasty (Nose Reshaping)",
-  "Breast Augmentation",
-  "Liposuction & Body Contouring",
-  "Facelift & Neck Lift",
-  "Tummy Tuck (Abdominoplasty)",
-  "Eyelid Surgery (Blepharoplasty)",
-  "Breast Lift & Breast Reduction",
-  "Hair Transplant",
-  "Gynecomastia Surgery",
-  "Botox & Dermal Fillers",
+  "Diabetes Management",
+  "Blood Pressure & Heart Health",
+  "Kidney Health (CKD)",
+  "Preventive Check-ups",
+  "Thyroid & Hormone Disorders",
+  "Cholesterol & Lipid Management",
+  "Lung & Breathing Care",
+  "Lab Tests & Diagnostics",
+  "Weight & Lifestyle Medicine",
+  "Digestive & Liver Health",
+  "Infections & Acute Illness",
+  "Telehealth Consultations",
 ];
 export const DEFAULT_SERVICES: Service[] = SERVICE_NAMES.map((name, i) => ({
   id: `s${i + 1}`,
@@ -66,18 +68,18 @@ export const DEFAULT_SERVICES: Service[] = SERVICE_NAMES.map((name, i) => ({
 export const DEFAULT_FAQS: Faq[] = [
   {
     id: "f1",
-    question: "How do I book a consultation with Dr. Dina Svinareva?",
-    answer: "Fill in the appointment form or message us on WhatsApp and we will confirm a time.",
+    question: "How do I book a consultation with Dr. Bilal Farhat Ali?",
+    answer: "Fill in the appointment form or message Dr. Bilal on Instagram @dr.bilalfarhat and we will confirm a time.",
   },
   {
     id: "f2",
     question: "What happens during the first consultation?",
-    answer: "The doctor listens to your goals, examines the area and explains the options, risks and recovery.",
+    answer: "The doctor takes your full history, examines you, reviews your reports and explains a clear care plan.",
   },
   {
     id: "f3",
-    question: "How long is the recovery after surgery?",
-    answer: "It depends on the procedure; the doctor gives you a personal recovery plan at the consultation.",
+    question: "Can I consult in Urdu?",
+    answer: "Yes. Dr. Bilal consults in both English and Urdu.",
   },
 ];
 

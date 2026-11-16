@@ -78,11 +78,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dr. Dina Svinareva, MD, Ph.D. | Ophthalmic & Oculoplastic Surgeon" },
-      { name: "description", content: "Plastic and aesthetic surgical care with Dr. Dina Svinareva." },
-      { name: "author", content: "Dr. Dina Svinareva" },
-      { property: "og:title", content: "Dr. Dina Svinareva, MD, Ph.D. | Ophthalmic & Oculoplastic Surgeon" },
-      { property: "og:description", content: "Plastic and aesthetic surgical care with Dr. Dina Svinareva." },
+      { title: "Dr. Bilal Farhat Ali, MD | Internal Medicine Physician in Cincinnati" },
+      { name: "description", content: "Internal medicine care for adults with Dr. Bilal Farhat Ali, MD in Cincinnati, Ohio." },
+      { name: "author", content: "Dr. Bilal Farhat Ali, MD" },
+      { property: "og:title", content: "Dr. Bilal Farhat Ali, MD | Internal Medicine Physician in Cincinnati" },
+      { property: "og:description", content: "Internal medicine care for adults with Dr. Bilal Farhat Ali, MD in Cincinnati, Ohio." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -102,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
