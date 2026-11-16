@@ -6,7 +6,7 @@ import { getContentSnapshot } from "./server";
 
 describe("self-hosted site logo", () => {
   it("uses the bundled Dr. Bilal Farhat Ali logo rather than a hosting-specific proxy", () => {
-    expect(SITE_LOGO_URL).toBe("/img/dr-bilal-logo.png");
+    expect(SITE_LOGO_URL).toBe("/img/dr-bilal-emblem.webp");
     expect(existsSync(resolve("public", SITE_LOGO_URL.slice(1)))).toBe(true);
   });
 
