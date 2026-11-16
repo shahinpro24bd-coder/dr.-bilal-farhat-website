@@ -7,7 +7,7 @@ const VIDEOS = ["e1iBls7go_g", "eKUjpGy2k8w", "YHyLtDk559Y"];
 const SHORTS = ["mcPbpa5c2j8", "wfb5wOHhyW0", "g8ML0QAc38k", "9llfqtglLPI", "a7gaObEn3Q4", "ZdgJUiZwmNw"];
 
 describe("Videos page", () => {
-  const html = PAGE_SOURCE.videos;
+  const html = PAGE_SOURCE["videos"] ?? "";
 
   it("is a published page", () => {
     expect(html).toBeTruthy();
