@@ -43,7 +43,8 @@ export function imageSlot(src: string): string {
 export const PAGES = [
   { slug: "index", file: "index.html", label: "Home" },
   { slug: "about", file: "about.html", label: "About" },
-  { slug: "service", file: "service.html", label: "Treatments" },
+  { slug: "service", file: "service.html", label: "Services" },
+  { slug: "videos", file: "videos.html", label: "Videos" },
   { slug: "appoinment", file: "appoinment.html", label: "Appointment" },
   { slug: "contact", file: "contact.html", label: "Contact" },
 ] as const;

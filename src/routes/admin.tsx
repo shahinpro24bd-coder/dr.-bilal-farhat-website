@@ -8,7 +8,8 @@ import { DEFAULT_ACCOUNT, KEYS, load, type Account } from "@/lib/admin-store";
 const PAGES = [
   { slug: "index", label: "Home" },
   { slug: "about", label: "About" },
-  { slug: "service", label: "Treatments" },
+  { slug: "service", label: "Services" },
+  { slug: "videos", label: "Videos" },
   { slug: "appoinment", label: "Appointment" },
   { slug: "contact", label: "Contact" },
 ] as const;

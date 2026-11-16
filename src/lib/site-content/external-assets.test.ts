@@ -6,9 +6,10 @@ import aboutHtml from "../../site/about.html?raw";
 import serviceHtml from "../../site/service.html?raw";
 import appoinmentHtml from "../../site/appoinment.html?raw";
 import contactHtml from "../../site/contact.html?raw";
+import videosHtml from "../../site/videos.html?raw";
 import fallback from "./fallback.generated.json?raw";
 
-const PAGES = { indexHtml, aboutHtml, serviceHtml, appoinmentHtml, contactHtml };
+const PAGES = { indexHtml, aboutHtml, serviceHtml, appoinmentHtml, contactHtml, videosHtml };
 
 describe("self-hosted media", () => {
   it("serves every image, poster and video from the site itself", () => {

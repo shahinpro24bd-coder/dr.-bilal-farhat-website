@@ -15,6 +15,7 @@ import {
   Stethoscope,
   Trash2,
   UserCog,
+  PlayCircle,
 } from "lucide-react";
 import {
   DEFAULT_ACCOUNT,
@@ -47,6 +48,7 @@ export const EDITABLE_PAGES = [
   { slug: "index", label: "Home", desc: "Hero, about the doctor, treatments, before & after, FAQ", icon: Home },
   { slug: "about", label: "About", desc: "Dr. Bilal Farhat Ali's story, training and values", icon: Info },
   { slug: "service", label: "Services", desc: "All internal medicine services", icon: Stethoscope },
+  { slug: "videos", label: "Videos", desc: "YouTube videos and shorts page", icon: PlayCircle },
   { slug: "appoinment", label: "Appointment", desc: "Booking page and form texts", icon: CalendarCheck },
   { slug: "contact", label: "Contact", desc: "Contact details and form", icon: Mail },
 ] as const;

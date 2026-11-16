@@ -280,16 +280,15 @@
         });
       }
 
-      // Load new stylesheets (and Hebrew fonts) BEFORE swapping, so the new
+      // Load new stylesheets (and Urdu fonts) BEFORE swapping, so the new
       // page never paints unstyled for a moment.
       function preload() {
         placeNodes(headPlan.nodes, true);
         var waits = headPlan.pending.slice();
-        if (document.fonts && document.fonts.load && /lang="he"/.test(html.slice(0, 400))) {
+        if (document.fonts && document.fonts.load && /lang="ur"/.test(html.slice(0, 400))) {
           waits.push(Promise.all([
-            document.fonts.load('400 16px "Heebo"', "\u05d0"),
-            document.fonts.load('700 16px "Heebo"', "\u05d0"),
-            document.fonts.load('700 32px "Frank Ruhl Libre"', "\u05d0")
+            document.fonts.load('400 16px "Noto Naskh Arabic"', "\u0627"),
+            document.fonts.load('700 16px "Noto Naskh Arabic"', "\u0627")
           ]).catch(function () {}));
         }
         return Promise.race([

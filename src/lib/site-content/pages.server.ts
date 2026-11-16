@@ -3,6 +3,7 @@ import appoinmentHtml from "../../site/appoinment.html?raw";
 import contactHtml from "../../site/contact.html?raw";
 import indexHtml from "../../site/index.html?raw";
 import serviceHtml from "../../site/service.html?raw";
+import videosHtml from "../../site/videos.html?raw";
 
 export const PAGE_SOURCE: Record<string, string> = {
   index: indexHtml,
@@ -10,4 +11,5 @@ export const PAGE_SOURCE: Record<string, string> = {
   service: serviceHtml,
   appoinment: appoinmentHtml,
   contact: contactHtml,
+  videos: videosHtml,
 };
